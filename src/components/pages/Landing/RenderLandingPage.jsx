@@ -1,14 +1,14 @@
 import React from 'react';
 // ADD IMPORTS BACK FOR GRAPHS SECTION
-// import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
-// import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
-// import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
+import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
+import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
+import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
 import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 // for the purposes of testing PageNav
-// import PageNav from '../../common/PageNav';
+import PageNav from '../../common/PageNav';
 
 function RenderLandingPage(props) {
   const scrollToTop = () => {
@@ -32,7 +32,32 @@ function RenderLandingPage(props) {
       </div>
 
       {/* Graphs Section: Add code here for the graphs section for your first ticket */}
-      {/* <div className="graphs-section"> */}
+      <div className="graphs-section">
+        <div className="grant-rates-by-office-graph-container">
+          <img
+            src={GrantRatesByOfficeImg}
+            alt="Grant Rates By Office Graph"
+            className="gr-office-img"
+          />
+          <h3>Search Grant Rates By Office</h3>
+        </div>
+        <div className="grant-rates-by-nationality-container">
+          <img
+            src={GrantRatesByNationalityImg}
+            alt="Grand Rates By Nationality Graph"
+            className="gr-nationality-img"
+          />
+          <h3>Search Grant Rates By Nationality</h3>
+        </div>
+        <div className="grant-rates-over-time-container">
+          <img
+            src={GrantRatesOverTimeImg}
+            alt="Grant Rates Over Time Graph"
+            className="gr-overtime-img"
+          />
+          <h3>Search Grant Rates Over Time</h3>
+        </div>
+      </div>
       <div className="view-more-data-btn-container">
         <Button
           type="default"
@@ -40,6 +65,13 @@ function RenderLandingPage(props) {
           onClick={() => history.push('/graphs')}
         >
           View the Data
+        </Button>
+        <Button
+          type="default"
+          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          // onClick={() => history.push('/graphs')}
+        >
+          Download the Data
         </Button>
       </div>
 
