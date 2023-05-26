@@ -69,7 +69,6 @@ function RenderLandingPage(props) {
         <Button
           type="default"
           style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-          // onClick={() => history.push('/graphs')}
         >
           Download the Data
         </Button>
@@ -93,6 +92,7 @@ function RenderLandingPage(props) {
       </div>
       <div>
         {/* Bottom Section: Add code here for the graphs section for your first ticket */}
+
         <div className="bottom-section">
           <h1>Systemic Disparity Insights</h1>
           <div className="data-container">
