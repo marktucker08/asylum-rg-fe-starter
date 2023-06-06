@@ -75,38 +75,84 @@ function GraphWrapper(props) {
     */
 
     if (office === 'all' || !office) {
-      axios
-        .get(`${apiURL}/fiscalSummary`, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-          },
-        })
-        .then(result => {
-          console.log(test_data);
-          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      switch (view) {
+        case 'time-series':
+          axios
+            .get(`${apiURL}/fiscalSummary`, {
+              // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
+              params: {
+                from: years[0],
+                to: years[1],
+              },
+            })
+            .then(result => {
+              console.log(test_data);
+              stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+            })
+            .catch(err => {
+              console.error(err);
+            });
+          break;
+        case 'citizenship':
+          axios
+            .get(`${apiURL}/citizenshipSummary`)
+            // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
+            // params: {
+            //   from: years[0],
+            //   to: years[1],
+            // },
+
+            .then(result => {
+              console.log(result.data);
+              stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+            })
+            .catch(err => {
+              console.error(err);
+            });
+          break;
+        default:
+          break;
+      }
     } else {
-      axios
-        .get(`${apiURL}/fiscalSummary`, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-            office: office,
-          },
-        })
-        .then(result => {
-          console.log(result.data);
-          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      switch (view) {
+        case 'time-series':
+          axios
+            .get(`${apiURL}/fiscalSummary`, {
+              // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
+              params: {
+                from: years[0],
+                to: years[1],
+                office: office,
+              },
+            })
+            .then(result => {
+              console.log(result.data);
+              stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+            })
+            .catch(err => {
+              console.error(err);
+            });
+          break;
+        case 'citizenship':
+          axios
+            .get(`${apiURL}/citizenshipSummary`, {
+              params: {
+                // from: years[0],
+                // to: years[1],
+                office: office,
+              },
+            })
+            .then(result => {
+              console.log(result.data);
+              stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+            })
+            .catch(err => {
+              console.error(err);
+            });
+          break;
+        default:
+          break;
+      }
     }
   }
   const clearQuery = (view, office) => {
