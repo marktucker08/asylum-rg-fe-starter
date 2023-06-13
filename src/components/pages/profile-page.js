@@ -2,9 +2,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
 
 export const ProfilePage = () => {
-  const { user } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
 
-  if (!user) {
+  if (!user || !isAuthenticated) {
     return null;
   }
 
@@ -15,12 +15,6 @@ export const ProfilePage = () => {
       </h1>
       <div className="content__body">
         <p id="page-description">
-          <span>
-            You can use the <strong>ID Token</strong> to get the profile
-            information of an authenticated user.
-          </span>
-        </p>
-        <p>
           <span>
             <strong>Only authenticated users can access this page.</strong>
           </span>

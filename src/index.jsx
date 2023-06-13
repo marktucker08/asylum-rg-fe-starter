@@ -15,6 +15,7 @@ import { ProfilePage } from './components/pages/profile-page';
 import { Auth0ProviderWithHistory } from './components/pages/auth0-provider-with-history';
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
+import { ProtectedRoute } from './components/protected-route';
 
 // import { TablePage } from './components/pages/Table';
 
@@ -72,7 +73,7 @@ export function App() {
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
         <Route path="/callback" component={CallbackPage} />
-        <Route path="/profile" component={ProfilePage} />
+        <ProtectedRoute path="/profile" component={ProfilePage} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer
