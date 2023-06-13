@@ -9,7 +9,7 @@ export const ProfilePage = () => {
   }
 
   return (
-    <div className="content-layout">
+    <div className="content-layout" style={{ textAlign: 'center' }}>
       <h1 id="page-title" className="content__title">
         Profile Page
       </h1>
@@ -19,6 +19,8 @@ export const ProfilePage = () => {
             You can use the <strong>ID Token</strong> to get the profile
             information of an authenticated user.
           </span>
+        </p>
+        <p>
           <span>
             <strong>Only authenticated users can access this page.</strong>
           </span>
@@ -31,16 +33,16 @@ export const ProfilePage = () => {
               <span className="profile__description">{user.email}</span>
             </div>
           </div>
-          <div className="profile__details">
-            {/* <div className="code-snippet">
+          {/* <div className="profile__details">
+            <div className="code-snippet">
                 <span className="code-snippet__title">{user.title}</span>
                     <div className="code-snippet__container">
                         <div className="code-snippet__wrapper">
                             <pre className="code-snippet__body">{user.code}</pre>
                         </div>
                     </div>
-                </div> */}
-          </div>
+                </div>
+          </div> */}
         </div>
       </div>
     </div>

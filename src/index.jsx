@@ -13,7 +13,6 @@ import { LandingPage } from './components/pages/Landing';
 import { CallbackPage } from './components/pages/callback-page';
 import { ProfilePage } from './components/pages/profile-page';
 import { Auth0ProviderWithHistory } from './components/pages/auth0-provider-with-history';
-
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
 
